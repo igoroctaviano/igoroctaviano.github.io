@@ -18,7 +18,7 @@ a {
   justify-content: center;
 }
 .wrapper {
-  width: 60%;
+  width: 55%;
 
   display: flex;
   align-items: center;
@@ -49,8 +49,21 @@ a {
   color: #B9B9DC;
   text-align: center;
   font-size: 15px;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 40px;
+}
+.more {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+.more a {
+  color: #B9B9DC;
+  font-size: 14px;
+  cursor: pointer;
+}
+.more a:hover {
+  color: #040306;
 }
 .social {
   display: flex;
