@@ -78,7 +78,7 @@ a {
 	right: 5%;
 	width: 90%;
 	height: 1px;
-	background-image: linear-gradient(to right, transparent, white, transparent);
+	background-image: linear-gradient(to right, transparent, #B9B9DC, transparent);
 }
 
 @media only screen and (max-width: 768px) {
