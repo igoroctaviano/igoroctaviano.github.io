@@ -45,6 +45,7 @@ a {
   font-weight: bold;
 }
 .description p {
+  color: #B9B9DC;
   text-align: center;
   font-size: 15px;
   margin-top: 60px;
@@ -55,7 +56,11 @@ a {
   justify-content: center;
 }
 .social nav a {
+  color: #B9B9DC;
   margin: 4px;
+}
+.social nav a:hover {
+  color: #040306;
 }
 
 /* Divider */
