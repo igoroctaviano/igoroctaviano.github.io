@@ -1,6 +1,6 @@
 /* General */
 * {
-  color: #B9B9DC;
+  color: #b9b9dc;
 }
 body {
   background-color: #292040;
@@ -40,14 +40,14 @@ a:hover {
   margin-left: 15%;
   margin-right: 15%;
 
-  font-family: 'Raleway';
+  font-family: "Raleway";
 }
 .picture img {
   width: 400px;
   height: auto;
 }
 .title p {
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: "Julius Sans One", sans-serif;
   font-size: 50px;
   font-weight: bold;
 
