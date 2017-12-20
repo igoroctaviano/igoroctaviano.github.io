@@ -1,3 +1,4 @@
+/* General */
 * {
   color: #B9B9DC;
 }
@@ -17,7 +18,7 @@ a:hover {
   color: #040306;
 }
 
-/* Structure */
+/* Wrappers */
 .main {
   position: absolute;
   height: 100%;
@@ -52,6 +53,9 @@ a:hover {
 
   color: white;
 }
+.description {
+  padding: 20px 0 20px 0;
+}
 .more {
   display: flex;
   justify-content: flex-end;
@@ -64,6 +68,7 @@ a:hover {
   margin: 5px;
 }
 
+/* Responsive */
 @media only screen and (max-width: 768px) {
   .wrapper {
     flex-wrap: wrap;
@@ -77,5 +82,9 @@ a:hover {
 
   .title p {
     font-size: 40px;
+  }
+
+  .wrapper {
+    height: 90%;
   }
 }
