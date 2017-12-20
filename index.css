@@ -31,14 +31,12 @@ a {
   font-family: 'Raleway';
 }
 .picture {
-  width: 250px;
-  height: 250px;
+
 }
 .picture img {
-  width: 250px;
-  height: 250px;
+  width: 450px;
+  height: auto;
   border-radius: 15px;
-  background-color: white;
 }
 .title p {
   font-family: 'Julius Sans One', sans-serif;
