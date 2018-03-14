@@ -1,0 +1,22 @@
+{
+  "short_name": "Igor Octaviano",
+  "name": "Hey there! I'm Igor!",
+  "description": "Hey there! I'm Igor, a web developer, consultant, writer, and musician located in beautiful Belo Horizonte, Brazil.",
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#292040",
+  "display": "browser",
+  "theme_color": "#292040",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "img/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicon/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}
