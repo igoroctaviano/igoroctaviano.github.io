@@ -6,6 +6,7 @@ a {
   font-size: 15px;
   text-decoration: none;
   cursor: pointer;
+  color: inherit;
 }
 p {
   font-size: 15px;
