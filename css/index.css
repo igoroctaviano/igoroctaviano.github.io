@@ -1,7 +1,4 @@
 /* General */
-* {
-  color: #b9b9dc;
-}
 body {
   background-color: #292040;
 }
@@ -15,7 +12,7 @@ p {
   text-align: center;
 }
 a:hover {
-  color: #040306;
+  color: #fff;
 }
 
 /* Wrappers */
@@ -39,7 +36,7 @@ a:hover {
 .profile {
   margin-left: 15%;
   margin-right: 15%;
-
+  color: #b9b9dc;
   font-family: "Raleway";
 }
 .picture img {
