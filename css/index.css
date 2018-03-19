@@ -18,6 +18,7 @@ a:hover {
 
 /* Wrappers */
 .main {
+  overflow: hidden;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -30,15 +31,14 @@ a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 /* Profile */
 .profile {
-  margin-left: 15%;
-  margin-right: 15%;
   color: #b9b9dc;
   font-family: "Raleway";
+  width: 32%;
 }
 .picture img {
   width: 400px;
@@ -67,13 +67,13 @@ a:hover {
 }
 
 /* Responsive */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 641px) {
   .wrapper {
     flex-wrap: wrap;
   }
 }
 
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: 481px) {
   .picture img {
     width: 250px;
   }
@@ -82,7 +82,25 @@ a:hover {
     font-size: 40px;
   }
 
-  .wrapper {
-    height: 90%;
+  .profile {
+    width: 85%;
+  }
+} 
+
+@media only screen and (max-width: 320px) {
+  .description {
+    padding: 10px 0 20px 0;
+  }
+
+  .description p {
+    font-size: 13px;
+  }
+
+  .title p {
+    font-size: 30px;
+  }
+
+  .picture img {
+    width: 170px;
   }
 }
