@@ -17,7 +17,7 @@ a:hover {
 }
 
 /* Wrappers */
-.main {
+main {
   overflow: hidden;
   position: absolute;
   height: 100%;
