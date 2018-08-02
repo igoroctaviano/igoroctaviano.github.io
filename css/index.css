@@ -16,6 +16,11 @@ a:hover {
   color: #fff;
 }
 
+/* Hello */
+.typed {
+  display: inline;
+}
+
 /* Wrappers */
 main {
   overflow: hidden;
@@ -54,6 +59,9 @@ main {
 .description {
   padding: 20px 0 20px 0;
 }
+.description p {
+  padding: 10px 0 0 0;
+}
 .more {
   display: flex;
   justify-content: flex-end;
@@ -85,7 +93,7 @@ main {
   .profile {
     width: 85%;
   }
-} 
+}
 
 @media only screen and (max-width: 320px) {
   .description {
@@ -103,4 +111,27 @@ main {
   .picture img {
     width: 170px;
   }
+}
+
+/* Divider */
+.divider {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 1px;
+}
+.div-transparent:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    #b9b9dc,
+    transparent
+  );
 }
