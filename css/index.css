@@ -74,6 +74,15 @@ main {
   margin: 5px;
 }
 
+/* Symbols */
+.symbols {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  bottom: 100px;
+}
+
 /* Responsive */
 @media only screen and (max-width: 641px) {
   .wrapper {
@@ -134,35 +143,6 @@ main {
     #b9b9dc,
     transparent
   );
-}
-
-/* Symbols */
-.symbols {
-  display: none;
-}
-
-@media only screen and (max-width: 481px) {
-  .symbols {
-    display: block;
-  }
-}
-
-/* Footer */
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 75px;
-}
-
-@media only screen and (max-width: 481px) {
-  footer {
-    display: none;
-  }
 }
 
 /* Footer Icons */
