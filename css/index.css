@@ -1,37 +1,43 @@
 /* General */
+
 body {
   background-color: #292040;
 }
+
 a {
   font-size: 15px;
   text-decoration: none;
   cursor: pointer;
   color: inherit;
 }
+
 p {
   font-size: 15px;
   text-align: center;
 }
+
 a:hover {
   color: #fff;
 }
 
-/* Hello */
+/* Typing */
+
 .typed {
   display: inline;
 }
 
 /* Wrappers */
+
 main {
   overflow: hidden;
   position: absolute;
   height: 100%;
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -40,41 +46,49 @@ main {
 }
 
 /* Profile */
+
 .profile {
   color: #b9b9dc;
   font-family: "Raleway";
   width: 32%;
 }
+
 .picture img {
   width: 400px;
   height: auto;
 }
+
 .title p {
   font-family: "Julius Sans One", sans-serif;
   font-size: 50px;
   font-weight: bold;
-
   color: #fff;
 }
+
 .description {
   padding: 20px 0 20px 0;
 }
+
 .description p {
   padding: 10px 0 0 0;
 }
+
 .more {
   display: flex;
   justify-content: flex-end;
 }
+
 .social {
   display: flex;
   justify-content: center;
 }
+
 .social nav a {
   margin: 5px;
 }
 
 /* Responsive */
+
 @media only screen and (max-width: 641px) {
   .wrapper {
     flex-wrap: wrap;
@@ -85,11 +99,9 @@ main {
   .picture img {
     width: 250px;
   }
-
   .title p {
     font-size: 40px;
   }
-
   .profile {
     width: 85%;
   }
@@ -99,27 +111,26 @@ main {
   .description {
     padding: 10px 0 20px 0;
   }
-
   .description p {
     font-size: 13px;
   }
-
   .title p {
     font-size: 30px;
   }
-
   .picture img {
     width: 170px;
   }
 }
 
 /* Divider */
+
 .divider {
   position: relative;
   margin-top: 20px;
   margin-bottom: 20px;
   height: 1px;
 }
+
 .div-transparent:before {
   content: "";
   position: absolute;
@@ -128,10 +139,5 @@ main {
   right: 5%;
   width: 90%;
   height: 1px;
-  background-image: linear-gradient(
-    to right,
-    transparent,
-    #b9b9dc,
-    transparent
-  );
+  background-image: linear-gradient( to right, transparent, #b9b9dc, transparent);
 }
