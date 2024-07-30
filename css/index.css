@@ -141,3 +141,11 @@ main {
   height: 1px;
   background-image: linear-gradient( to right, transparent, #b9b9dc, transparent);
 }
+
+nav {
+  flex-wrap: wrap;
+  display: flex;
+  overflow-x: auto;
+  gap: 0.3rem;
+  justify-content: center;
+}
