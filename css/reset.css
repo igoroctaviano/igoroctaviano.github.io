@@ -15,10 +15,9 @@ body {
 }
 
 img,
-picture,
-svg {
-  display: block;
+picture {
   max-width: 100%;
+  height: auto;
 }
 
 a {
