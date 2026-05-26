@@ -20,10 +20,59 @@ a:hover {
   color: #fff;
 }
 
+/* Icons (replaces Font Awesome — same visual scale as fa-sm / fa-xl) */
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: -0.125em;
+}
+
+.icon-sm {
+  width: 0.875em;
+  height: 0.875em;
+}
+
+.icon-xl {
+  width: 1.25em;
+  height: 1.25em;
+}
+
 /* Typing */
 
 .typed {
   display: inline;
+}
+
+.typed-cursor {
+  opacity: 1;
+}
+
+.typed-cursor.typed-cursor--blink {
+  animation: typedjsBlink 0.7s infinite;
+}
+
+@keyframes typedjsBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.typed-fade-out {
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.typed-cursor.typed-fade-out {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typed-cursor.typed-cursor--blink {
+    animation: none;
+  }
 }
 
 /* Wrappers */
@@ -49,7 +98,7 @@ main {
 
 .profile {
   color: #b9b9dc;
-  font-family: "Raleway";
+  font-family: "Raleway", system-ui, sans-serif;
   width: 32%;
 }
 
@@ -139,7 +188,12 @@ main {
   right: 5%;
   width: 90%;
   height: 1px;
-  background-image: linear-gradient( to right, transparent, #b9b9dc, transparent);
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    #b9b9dc,
+    transparent
+  );
 }
 
 nav {

@@ -1,0 +1,5 @@
+.DS_Store
+Thumbs.db
+
+# Source asset kept locally; site uses profile.optimized.png
+img/profile.png
