@@ -43,5 +43,11 @@ export const COMPANY = {
       tagline: "Monthly expense tracking that works like a spreadsheet.",
       url: "https://dindjin.com",
     },
+    {
+      id: "pokerize",
+      name: "Pokerize",
+      tagline: "Real-time planning poker for agile teams.",
+      url: "https://pokerize.ioctavis.com",
+    },
   ],
 } as const;

@@ -8,10 +8,11 @@ import Icon from "../components/Icon.astro";
 import portrait from "../assets/profile.png";
 import pentefinoIcon from "../assets/pentefino-icon.png";
 import dindjinIcon from "../assets/dindjin-icon.png";
+import pokerizeIcon from "../assets/pokerize-icon.svg";
 import { COMPANY, SITE, SOCIAL } from "../site";
 import { getPosts } from "../lib/posts";
 
-const productIcons = { pentefino: pentefinoIcon, dindjin: dindjinIcon } as const;
+const productIcons = { pentefino: pentefinoIcon, dindjin: dindjinIcon, pokerize: pokerizeIcon } as const;
 const tools = (await getCollection("tools"))
   .filter((t) => t.data.featured)
   .sort((a, b) => a.data.order - b.data.order)
