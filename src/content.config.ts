@@ -23,6 +23,8 @@ const tools = defineCollection({
     description: z.string(),
     repo: z.url(),
     url: z.url().optional(),
+    /** Set when the project is not mine, e.g. "Core contributor". */
+    role: z.string().optional(),
     tags: z.array(z.string()).default([]),
     kind: z.enum(["app", "library", "action", "cli", "guide"]),
     featured: z.boolean().default(false),

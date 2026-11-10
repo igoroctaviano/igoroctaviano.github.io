@@ -6,11 +6,11 @@ import ToolCard from "../components/ToolCard.astro";
 const tools = (await getCollection("tools")).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<Base title="Open source" description="Open source projects by Igor Octaviano: GitHub Actions, medical imaging libraries and guides.">
+<Base title="Open source" description="Open source medical imaging projects Igor Octaviano is a core contributor to: OHIF Viewer, Cornerstone3D, dicom-microscopy-viewer and Slim.">
   <section class="wrap pt-8 sm:pt-14">
     <h1 class="text-3xl font-semibold tracking-tight text-ink">Open source</h1>
     <p class="mt-3 max-w-lg text-soft">
-      Projects I've published on GitHub. They're free to use, and issues and pull requests are welcome.
+      Open source medical imaging projects I work on as a core contributor. They belong to their communities, and contributions are welcome.
     </p>
     <div class="mt-10 grid gap-3">
       {tools.map((tool) => <ToolCard tool={tool} />)}

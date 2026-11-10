@@ -222,6 +222,21 @@
     color: var(--ink-mute);
   }
 
+  /* "Core contributor": the project belongs to its community, not to me */
+  .chip-role {
+    background: color-mix(in oklab, var(--accent) 12%, transparent);
+    color: var(--accent);
+  }
+
+  /* Tongue-in-cheek "Pre-AI era" badge on the old posts */
+  .chip-joke {
+    border: 1px dashed var(--line);
+    background: transparent;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
   .link {
     color: var(--ink);
     text-decoration: underline;

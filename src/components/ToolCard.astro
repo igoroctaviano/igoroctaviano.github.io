@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { tool } = Astro.props;
-const { name, tagline, repo, url, kind } = tool.data;
+const { name, tagline, repo, url, kind, role } = tool.data;
 const kindLabel = { app: "App", library: "Library", action: "GitHub Action", cli: "CLI", guide: "Guide" }[kind];
 const kindIcon: IconName = { app: "window", library: "box", action: "bolt", cli: "terminal", guide: "book" }[kind] as IconName;
 ---
@@ -17,8 +17,12 @@ const kindIcon: IconName = { app: "window", library: "box", action: "bolt", cli:
   <span class="min-w-0 flex-1">
     <span class="block font-medium text-ink">{name}</span>
     <span class="block text-sm text-mute">{tagline}</span>
-    <span class="chip mt-2 sm:hidden">{kindLabel}</span>
+    <span class="mt-2 flex flex-wrap gap-1.5 sm:hidden">
+      {role && <span class="chip chip-role">{role}</span>}
+      <span class="chip">{kindLabel}</span>
+    </span>
   </span>
+  {role && <span class="chip chip-role hidden sm:inline-flex">{role}</span>}
   <span class="chip hidden sm:inline-flex">{kindLabel}</span>
   <Icon name="external" size={14} class="nudge hidden shrink-0 sm:block" />
 </a>
