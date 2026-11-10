@@ -1,0 +1,64 @@
+---
+import { render } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import Base from "../../layouts/Base.astro";
+import { Image } from "astro:assets";
+import avatar from "../../assets/avatar.png";
+import { SITE } from "../../site";
+import { getPosts } from "../../lib/posts";
+
+export const getStaticPaths = (async () => {
+  const posts = await getPosts();
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: { post, newer: posts[i - 1], older: posts[i + 1] },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post, newer, older } = Astro.props;
+const { Content } = await render(post);
+const { title, description, date, lang } = post.data;
+const fmt = date.toLocaleDateString(lang, { year: "numeric", month: "long", day: "numeric" });
+---
+
+<Base title={title} description={description} lang={lang} type="article" publishedTime={date}>
+  <article class="wrap pt-8 sm:pt-14">
+    <a href="/blog/" class="text-sm text-mute hover:text-ink" lang="en">← Writing</a>
+    <h1 class="mt-6 text-3xl leading-tight font-semibold tracking-tight text-balance text-ink sm:text-4xl">{title}</h1>
+    <p class="mt-3 text-mute">
+      <time datetime={date.toISOString()}>{fmt}</time>
+    </p>
+
+    <div class="prose mt-10">
+      <Content />
+    </div>
+
+    <aside class="mt-16 flex items-center gap-4 border-t border-line pt-8" lang="en">
+      <Image src={avatar} alt="" width={96} height={96} class="size-12 rounded-full border border-line" />
+      <p class="text-sm text-mute">
+        Written by <a href="/" class="link">{SITE.name}</a>, software engineer and medical imaging consultant.
+      </p>
+    </aside>
+
+    <nav class="mt-10 grid gap-3 sm:grid-cols-2" aria-label="More posts" lang="en">
+      {
+        older ? (
+          <a href={`/blog/${older.id}/`} class="card p-4">
+            <span class="text-xs text-mute">Previous</span>
+            <span class="mt-1 block text-sm text-ink">{older.data.title}</span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        newer && (
+          <a href={`/blog/${newer.id}/`} class="card p-4 sm:text-right">
+            <span class="text-xs text-mute">Next</span>
+            <span class="mt-1 block text-sm text-ink">{newer.data.title}</span>
+          </a>
+        )
+      }
+    </nav>
+  </article>
+</Base>

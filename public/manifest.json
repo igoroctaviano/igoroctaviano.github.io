@@ -1,0 +1,15 @@
+{
+  "id": "/",
+  "short_name": "Igor",
+  "name": "Igor Octaviano",
+  "description": "Software engineer, medical imaging consultant and multi-instrumentalist based in Belo Horizonte, Brazil.",
+  "start_url": "/",
+  "background_color": "#fbfbfa",
+  "theme_color": "#fbfbfa",
+  "display": "browser",
+  "lang": "en",
+  "icons": [
+    { "src": "/img/favicon/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/img/favicon/android-chrome-256x256.png", "sizes": "256x256", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Icon, { type IconName } from "./Icon.astro";
+
+interface Props {
+  tool: CollectionEntry<"tools">;
+}
+
+const { tool } = Astro.props;
+const { name, tagline, repo, url, kind } = tool.data;
+const kindLabel = { app: "App", library: "Library", action: "GitHub Action", cli: "CLI", guide: "Guide" }[kind];
+const kindIcon: IconName = { app: "window", library: "box", action: "bolt", cli: "terminal", guide: "book" }[kind] as IconName;
+---
+
+<a href={url ?? repo} target="_blank" rel="noopener" class="card flex items-center gap-4 p-4">
+  <span class="tile"><Icon name={kindIcon} size={17} /></span>
+  <span class="min-w-0 flex-1">
+    <span class="block font-medium text-ink">{name}</span>
+    <span class="block text-sm text-mute">{tagline}</span>
+    <span class="chip mt-2 sm:hidden">{kindLabel}</span>
+  </span>
+  <span class="chip hidden sm:inline-flex">{kindLabel}</span>
+  <Icon name="external" size={14} class="nudge hidden shrink-0 sm:block" />
+</a>

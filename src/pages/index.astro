@@ -1,0 +1,104 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import ToolCard from "../components/ToolCard.astro";
+import PostList from "../components/PostList.astro";
+import Icon from "../components/Icon.astro";
+import portrait from "../assets/profile.png";
+import pentefinoIcon from "../assets/pentefino-icon.png";
+import dindjinIcon from "../assets/dindjin-icon.png";
+import { COMPANY, SITE, SOCIAL } from "../site";
+import { getPosts } from "../lib/posts";
+
+const productIcons = { pentefino: pentefinoIcon, dindjin: dindjinIcon } as const;
+const tools = (await getCollection("tools"))
+  .filter((t) => t.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+const posts = (await getPosts()).slice(0, 5);
+const mainLinks = SOCIAL.filter((s) => s.id === "github" || s.id === "linkedin");
+---
+
+<Base type="profile">
+  <section class="wrap flex flex-col-reverse gap-8 pt-8 sm:flex-row sm:items-center sm:justify-between sm:pt-16">
+    <div class="max-w-md">
+      <p class="pill rise"><Icon name="pin" size={12} />{SITE.location}</p>
+      <h1 class="rise mt-5 text-4xl font-semibold tracking-tight text-ink" style="--i: 1">Igor Octaviano</h1>
+      <p class="rise mt-2 text-mute" style="--i: 1">Software engineer and medical imaging consultant</p>
+      <p class="rise mt-6 leading-relaxed text-soft" style="--i: 2">
+        I build software for medical imaging, from web-based image viewers to DICOM tooling. I also run <a href={COMPANY.url} class="link">{COMPANY.name}</a>, a small software company. I live
+        in Belo Horizonte, Brazil, and play music in my spare time.
+      </p>
+      <p class="rise mt-7 flex flex-wrap gap-2" style="--i: 3">
+        {
+          mainLinks.map((s) => (
+            <a href={s.href} rel="me noopener" target="_blank" class="btn">
+              <Icon name={s.id} size={14} />
+              {s.label}
+            </a>
+          ))
+        }
+        <a href="/blog/" class="btn">
+          Writing
+          <Icon name="arrow" size={13} />
+        </a>
+      </p>
+    </div>
+    <Image
+      src={portrait}
+      alt="Watercolor portrait of Igor Octaviano"
+      widths={[200, 400, 600]}
+      sizes="12rem"
+      loading="eager"
+      fetchpriority="high"
+      class="rise h-auto w-36 shrink-0 sm:w-48"
+      style="--i: 2"
+    />
+  </section>
+
+  <section class="wrap rise mt-20" style="--i: 4" aria-labelledby="company">
+    <div class="section-head">
+      <h2 id="company" class="section-title">Company</h2>
+    </div>
+    <p class="mt-3 text-soft">
+      Products I'm building at <a href={COMPANY.url} class="link">{COMPANY.name}</a>.
+    </p>
+    <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+      {
+        COMPANY.products.map((p) => (
+          <li>
+            <a href={p.url} class="card flex h-full items-center gap-4 p-4">
+              <Image src={productIcons[p.id]} alt="" width={80} height={80} class="size-10 shrink-0 rounded-lg" />
+              <span class="min-w-0 flex-1">
+                <span class="block font-medium text-ink">{p.name}</span>
+                <span class="block text-sm text-mute">{p.tagline}</span>
+              </span>
+              <Icon name="arrow" size={14} class="nudge shrink-0" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="wrap mt-16" aria-labelledby="oss">
+    <div class="section-head">
+      <h2 id="oss" class="section-title">Open source</h2>
+      <a href="/tools/" class="text-sm text-mute hover:text-ink">All projects</a>
+    </div>
+    <div class="mt-5 grid gap-3">
+      {tools.map((tool) => <ToolCard tool={tool} />)}
+    </div>
+  </section>
+
+  <section class="wrap mt-16" aria-labelledby="writing">
+    <div class="section-head">
+      <h2 id="writing" class="section-title">Writing</h2>
+      <a href="/blog/" class="text-sm text-mute hover:text-ink">All posts</a>
+    </div>
+    <div class="mt-3">
+      <PostList posts={posts} />
+    </div>
+  </section>
+</Base>

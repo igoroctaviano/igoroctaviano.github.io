@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import avatar from "../assets/avatar.png";
+import { COMPANY, NAV } from "../site";
+import Icon from "./Icon.astro";
+
+const path = Astro.url.pathname;
+---
+
+<header
+  id="site-header"
+  class="sticky top-0 z-40 border-b border-transparent bg-bg/75 backdrop-blur-md transition-colors data-[scrolled]:border-line"
+>
+  <div class="wrap flex h-16 items-center justify-between gap-4">
+    <a href="/" aria-label="Home" class="shrink-0 rounded-full">
+      <Image
+        src={avatar}
+        alt=""
+        width={72}
+        height={72}
+        class="size-9 rounded-full border border-line transition-transform hover:scale-105"
+        loading="eager"
+      />
+    </a>
+    <nav aria-label="Main" class="flex items-center gap-1 text-sm">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            aria-current={path.startsWith(item.href) ? "page" : undefined}
+            class:list={[
+              "rounded-full px-3 py-1.5 transition-colors",
+              path.startsWith(item.href) ? "bg-sunk text-ink" : "text-mute hover:text-ink",
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a href={COMPANY.url} class="rounded-full px-3 py-1.5 text-mute transition-colors hover:text-ink">{COMPANY.name}</a>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="-mr-1 ml-1 grid size-8 place-items-center rounded-full text-mute transition-colors hover:bg-sunk hover:text-ink"
+        aria-label="Toggle light and dark theme"
+      >
+        <Icon name="sun" size={15} class="hidden dark:block" />
+        <Icon name="moon" size={14} class="block dark:hidden" />
+      </button>
+    </nav>
+  </div>
+</header>
+
+<script>
+  /** Delegated, so it keeps working after client-side navigations replace the header. */
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element) || !event.target.closest("#theme-toggle")) return;
+    const root = document.documentElement;
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem("theme", next);
+    } catch {}
+  });
+
+  /** Show the header's bottom border only once the page has scrolled. */
+  const mark = () => {
+    const header = document.getElementById("site-header");
+    if (header) header.toggleAttribute("data-scrolled", window.scrollY > 8);
+  };
+  window.addEventListener("scroll", mark, { passive: true });
+  document.addEventListener("astro:page-load", mark);
+</script>

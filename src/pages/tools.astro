@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import ToolCard from "../components/ToolCard.astro";
+
+const tools = (await getCollection("tools")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title="Open source" description="Open source projects by Igor Octaviano: GitHub Actions, medical imaging libraries and guides.">
+  <section class="wrap pt-8 sm:pt-14">
+    <h1 class="text-3xl font-semibold tracking-tight text-ink">Open source</h1>
+    <p class="mt-3 max-w-lg text-soft">
+      Projects I've published on GitHub. They're free to use, and issues and pull requests are welcome.
+    </p>
+    <div class="mt-10 grid gap-3">
+      {tools.map((tool) => <ToolCard tool={tool} />)}
+    </div>
+  </section>
+</Base>
