@@ -26,28 +26,8 @@ export const SOCIAL = [
   },
 ] as const;
 
-/** The company and its products. Product pages live on their own sites, not here. */
+/** The company, mentioned on the home page. Its products are listed on its own site. */
 export const COMPANY = {
   name: "ioctavis",
   url: "https://ioctavis.com",
-  products: [
-    {
-      id: "pentefino",
-      name: "Pentefino",
-      tagline: "Finds duplicate photos and videos and keeps the best copy.",
-      url: "https://pentefino.ioctavis.com",
-    },
-    {
-      id: "dindjin",
-      name: "DinDjin",
-      tagline: "Monthly expense tracking that works like a spreadsheet.",
-      url: "https://dindjin.com",
-    },
-    {
-      id: "pokerize",
-      name: "Pokerize",
-      tagline: "Real-time planning poker for agile teams.",
-      url: "https://pokerize.ioctavis.com",
-    },
-  ],
 } as const;

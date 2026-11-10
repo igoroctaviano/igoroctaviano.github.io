@@ -15,5 +15,5 @@ npm run build    # type check + static build into dist/
 | Name, bio, greetings, social links | `src/site.ts` |
 | Blog posts | `src/content/blog/<slug>.md` (frontmatter: `title`, `description`, `date`, optional `lang`, `draft`) |
 | Open source tools | `src/data/tools.json` (`featured: true` shows it on the home page) |
-| ioctavis and its products | `COMPANY` in `src/site.ts` (each product links to its own site) |
+| ioctavis link | `COMPANY` in `src/site.ts` |
 | Social share image | `node scripts/og.mjs` regenerates `public/og.png` |
